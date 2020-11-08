@@ -1,0 +1,102 @@
+#page-main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#page-main aside,
+#page-main main {
+  min-height: 100vh;
+}
+
+#page-main aside {
+  width: initial;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2.4rem;
+}
+
+#page-main aside > img {
+  max-width: 20.8rem;
+  margin-bottom: 10.2rem;
+}
+
+#page-main section img {
+  width: 100%;
+  max-width: 40rem;
+}
+
+#page-main section h1 {
+  font: 400 2.4rem Poppins, sans-serif;
+  margin-top: 4.8rem;
+}
+
+#page-main main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  box-shadow: -4px 0px 4px 0px rgba(51, 51, 51, 0.25);
+}
+
+#page-main main .container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.4rem;
+}
+
+#page-main .actions,
+#page-main main img {
+  width: 80%;
+  max-width: 43.2rem;
+}
+
+#page-main main img {
+  margin-bottom: 6.4rem;
+}
+
+#page-main .actions a {
+  min-height: 6.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 2px solid var(--color-secondary);
+  border-radius: 0.8rem;
+  margin-bottom: 3.2rem;
+  transition: border 0.2s, background 0.2s;
+}
+
+#page-main .actions a:hover {
+  border: none;
+  background: var(--color-secondary);
+}
+
+#page-main .actions p {
+  font: 700 2.4rem Archivo, sans-serif;
+  color: var(--color-secondary);
+}
+
+#page-main .actions a:hover p {
+  color: var(--color-primary);
+  transition: color 0.2s;
+}
+
+@media screen and (min-width: 648px) {
+  #page-main {
+    flex-direction: row;
+  }
+
+  #page-main aside,
+  #page-main main {
+    min-height: initial;
+  }
+}
