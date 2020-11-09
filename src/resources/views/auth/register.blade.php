@@ -46,8 +46,8 @@
               <input type="password" id="password" name="password" required>
             </div>
             <div class="input-group">
-              <label for="password-confirmation">Confirmar senha</label>
-              <input type="password" id="password-confirmation" name="password-confirmation" required>
+              <label for="password_confirmation">Confirmar senha</label>
+              <input type="password" id="password_confirmation" name="password_confirmation" required>
             </div>
           </div>
           <button type="submit">
