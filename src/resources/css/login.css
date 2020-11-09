@@ -1,0 +1,157 @@
+#page-login {
+  --header-height: 9.6rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#page-login > header {
+  min-height: var(--header-height);
+  max-width: initial;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+  position: relative;
+  z-index: 5;
+}
+
+#page-login aside {
+  display: none;
+}
+
+#page-login main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(calc(var(--header-height) * -1));
+  margin-bottom: calc(var(--header-height) * -1);
+  padding-top: var(--header-height);
+}
+
+#page-login main .container {
+  width: 75%;
+}
+
+#page-login main header h1 {
+  font: 700 4.8rem Archivo, sans-serif;
+  margin-bottom: 3.2rem;
+}
+
+#page-login main header h3 {
+  font: 400 2.4rem Poppins, sans-serif;
+}
+
+#page-login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3.2rem;
+  margin-bottom: 6.4rem;
+}
+
+#page-login fieldset {
+  width: 100%;
+  border: none;
+}
+
+#page-login fieldset legend {
+  font: 700 3.2rem Archivo, sans-serif;
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+
+#page-login button {
+  width: 100%;
+  min-height: 6.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  border: 2px solid var(--color-secondary);
+  border-radius: 0.8rem;
+  background-color: transparent;
+  margin-top: 3.2rem;
+  transition: border 0.2s, background 0.2s;
+}
+
+#page-login button:hover {
+  border: none;
+  background: var(--color-secondary);
+}
+
+#page-login button p {
+  font: 700 2.4rem Archivo, sans-serif;
+  color: var(--color-secondary);
+}
+
+#page-login button:hover p {
+  color: var(--color-primary);
+  transition: color 0.2s;
+}
+
+#page-login footer {
+  margin-bottom: 2.4rem;
+}
+
+#page-login footer p {
+  text-align: center;
+  font: 400 1.6rem Poppins, sans-serif;
+  color: var(--color-white);
+}
+
+#page-login footer p > a {
+  font: 400 1.6rem Poppins, sans-serif;
+  color: var(--color-secondary);
+  margin-left: 0.4rem;
+}
+
+@media screen and (min-width: 648px) {
+  #page-login {
+    display: grid;
+    grid-template-rows: var(--header-height) auto;
+    grid-template-areas:
+      "header header"
+      "aside main";
+  }
+
+  #page-login header {
+    grid-area: header;
+  }
+
+  #page-login aside {
+    grid-area: aside;
+    display: flex;
+    flex: 1;
+  }
+
+  #page-login aside div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #page-login aside div img {
+    width: 100%;
+    max-width: 40rem;
+  }
+
+  #page-login aside div img + img {
+    max-width: 33.6rem;
+    margin-top: 3.2rem;
+  }
+
+  #page-login main {
+    grid-area: main;
+    box-shadow: -4px 0px 4px 0px rgba(51, 51, 51, 0.25);
+  }
+}
