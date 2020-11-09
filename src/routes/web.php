@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,5 @@ Route::get('/login', function() {
   return view('auth.login');
 });
 
-Route::get('/register', function() {
-  return view('auth.register');
-});
+Route::resource('register', RegisterController::class)
+  ->only(['index','store']);
