@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class StoreUser extends FormRequest
 {
@@ -25,6 +26,13 @@ class StoreUser extends FormRequest
         'password_confirmation' => 'Confirmação de senha',
         'photo' => 'Foto'
       ];
+    }
+
+
+    protected function prepareForValidation() {
+      $this->merge([
+          'username' => Str::lower($this->username),
+      ]);
     }
 
     /**
