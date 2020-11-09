@@ -14,7 +14,10 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
   .js('resources/js/fileHandler.js', 'public/js');
 
-mix.styles('resources/css/globals/app.css', 'public/css/app.css')
+mix.styles([
+  'resources/css/globals/animations.css',
+  'resources/css/globals/app.css'
+  ], 'public/css/app.css')
   .styles('resources/css/main.css', 'public/css/main.css')
   .styles('resources/css/login.css', 'public/css/login.css')
   .styles('resources/css/register.css', 'public/css/register.css');
