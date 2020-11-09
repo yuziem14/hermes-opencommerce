@@ -1,0 +1,123 @@
+#page-register {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 4.8rem;
+}
+
+#page-register .input-group label {
+  color: var(--color-complement);
+}
+
+#page-register header {
+  background-color: var(--color-primary);
+  padding-bottom: 16rem;
+}
+
+#page-register nav {
+  max-width: 90vw;
+  min-height: 9.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 2.4rem;
+}
+
+#page-register nav > img {
+  max-width: 8rem;
+}
+
+#page-register header .container,
+#page-register main.container {
+  max-width: 568px;
+}
+
+#page-register header h1 {
+  font: 700 3.2rem Archivo, sans-serif;
+  color: var(--color-white);
+  margin-bottom: 2.4rem;
+}
+
+#page-register header h3 {
+  font: 400 1.6rem Poppins, sans-serif;
+  color: var(--color-white);
+}
+
+#page-register main {
+  background: var(--color-white);
+  border: none;
+  border-radius: 0.8rem;
+  transform: translateY(-6.4rem);
+  margin-bottom: -6.4rem;
+  position: relative;
+  z-index: 5;
+}
+
+#page-register form > .input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-4.8rem);
+  margin-bottom: -4.8rem;
+}
+
+#page-register form input[type="file"] {
+  display: none;
+}
+
+#page-register form > .input-group div {
+  --photo-size: 16rem;
+  width: var(--photo-size);
+  height: var(--photo-size);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-dark);
+}
+
+#page-register form > .input-group img {
+  width: 80%;
+  max-width: 6.4rem;
+}
+
+#page-register main fieldset {
+  border: none;
+}
+
+#page-register main legend {
+  width: 100%;
+  font: 700 2.4rem Archivo, sans-serif;
+  color: var(--color-secondary);
+  border-bottom: 2px solid var(--color-secondary);
+  padding-top: 3.2rem;
+  padding-bottom: 2.4rem;
+  margin-bottom: 3.2rem;
+}
+
+#page-register main fieldset.container {
+  width: 75%;
+}
+
+#page-register main button {
+  width: 100%;
+  min-height: 6.4rem;
+  border: none;
+  border-radius: 0.8rem;
+  background-color: var(--color-secondary);
+  margin: 4.8rem 0;
+  transition: background-color 0.2s;
+}
+
+#page-register main button:hover {
+  background-color: var(--color-secondary-darker);
+}
+
+#page-register main button p {
+  font: 700 2.4rem Archivo, sans-serif;
+  color: var(--color-text);
+}
