@@ -49,6 +49,32 @@ textarea {
   display: block;
 }
 
+.input-group {
+  width: 100%;
+}
+
+.input-group + .input-group {
+  margin-top: 2.4rem;
+}
+
+.input-group label {
+  display: block;
+  font: 400 1.2rem Poppins, sans-serif;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+.input-group input {
+  width: 100%;
+  min-height: 5.6rem;
+  border: none;
+  border: 1px solid var(--color-border-light);
+  border-radius: 0.8rem;
+  background-color: var(--color-background-light);
+  outline: 0;
+  padding: 0.8rem;
+}
+
 @media (min-width: 768px) {
   :root {
     font-size: 62.5%;
