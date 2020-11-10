@@ -7,17 +7,17 @@
 @endphp
 
 @section('styles')
-  <link rel="stylesheet" href="/css/parcials.css">
+  <link rel="stylesheet" href="/css/partials.css">
   <link rel="stylesheet" href="/css/home.css">
 @endsection
 
 @section('content')
   <div id="page-home">
-    @include('parcials.topbar')
+    @include('partials.topbar')
     <main>
-      @include('parcials.navbar')
+      @include('partials.navbar')
 
-      <aside id="aside-content">
+      <aside id="aside-content" class="with-nav">
         <div class="container">
           <h1>Minha Vitrine</h1>
           <div class="products">
@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        @include('parcials.pagination')
+        @include('partials.pagination')
       </aside>
     </main>
   </div>
