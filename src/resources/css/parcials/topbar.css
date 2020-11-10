@@ -1,0 +1,31 @@
+#top-bar {
+  background-color: var(--color-primary);
+  border-bottom: 2px solid var(--color-purple-light);
+}
+
+#top-bar div {
+  --header-height: 10.4rem;
+  width: 90vw;
+  max-height: var(--header-height);
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+#top-bar h1 {
+  font: 400 1.8rem Poppins, sans-serif;
+  color: var(--color-purple-lighter);
+}
+
+#top-bar div > img {
+  width: 80%;
+  max-width: 9.6rem;
+}
+
+@media screen and (min-width: 568px) {
+  #topbar div > img {
+    max-width: 16.8rem;
+  }
+}

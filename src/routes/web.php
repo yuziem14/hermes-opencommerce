@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SessionController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::delete('logout', [SessionController::class, 'destroy'])
   ->middleware('auth')
   ->name('logout');
 
-Route::get('/home', function() {
-  return 'Home';
-})->middleware('auth')
-  ->name('home');
+Route::resource('home', HomeController::class)
+  ->only(['index'])
+  ->middleware('auth')
+  ->name('index', 'home');

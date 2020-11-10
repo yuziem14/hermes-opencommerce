@@ -18,8 +18,16 @@ mix.styles([
   'resources/css/globals/animations.css',
   'resources/css/globals/app.css'
   ], 'public/css/app.css')
+  .styles([
+    'resources/css/parcials/navbar.css',
+    'resources/css/parcials/topbar.css',
+    'resources/css/parcials/pagination.css',
+    'resources/css/parcials/aside-content.css',
+  ], 'public/css/parcials.css')
+  .styles('resources/css/components/product.css', 'public/css/product.css')
   .styles('resources/css/main.css', 'public/css/main.css')
   .styles('resources/css/login.css', 'public/css/login.css')
-  .styles('resources/css/register.css', 'public/css/register.css');
+  .styles('resources/css/register.css', 'public/css/register.css')
+  .styles('resources/css/home.css', 'public/css/home.css');
 
 mix.copyDirectory('resources/images', 'public/images');

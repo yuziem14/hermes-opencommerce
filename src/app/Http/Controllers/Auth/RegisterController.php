@@ -46,8 +46,11 @@ class RegisterController extends Controller
           $photo = $request->file('photo');
 
           if($photo->isValid()) {
-            $filename = $data['username'].'_'.Str::random();
-            $photo->storeAs('avatars', $filename.'.'.$photo->extension());
+            $fileHash = Str::random();
+            $fileExtension = $photo->extension();
+            $filename = $data['username'].'_'.$fileHash.'.'.$fileExtension;
+
+            $photo->storeAs('avatars', $filename);
           }
         }
 
