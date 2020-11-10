@@ -74,8 +74,9 @@
           required
         >
           <option value="" selected disabled>Selecione uma tag</option>
-          <option value="eletrodomesticos">Eletrodomésticos</option>
-          <option value="Decorações">Decorações</option>
+          @foreach($tags as $tag)
+            <option value="{{ $tag->slug }}">{{ $tag->name }}</option>
+          @endforeach
         </select>
       </div>
       <div class="selected-tags">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Tag;
+
 class ProductController extends Controller
 {
     /**
@@ -23,7 +25,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+      $tags = Tag::all();
+      return view('products.create')->with('tags', $tags);
     }
 
     /**
