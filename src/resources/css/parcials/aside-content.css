@@ -1,0 +1,18 @@
+#aside-content {
+  margin-bottom: 9.6rem;
+}
+
+#aside-content h1 {
+  font: 400 2.4rem Poppins, sans-serif;
+  margin: 3.2rem 0;
+}
+
+#aside-content .container {
+  max-width: 1100px;
+}
+
+@media screen and (min-width: 648px) {
+  #aside-content {
+    margin-left: 10.4rem;
+  }
+}

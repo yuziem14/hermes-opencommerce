@@ -1,0 +1,35 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4.8rem;
+}
+
+.pagination-control {
+  display: flex;
+  text-decoration: none;
+}
+
+.pagination-control.prev svg {
+  margin-right: 0.8rem;
+}
+
+.pagination-control.next svg {
+  transform: rotate(180deg);
+  margin-left: 0.8rem;
+}
+
+.pagination p {
+  font: 400 1.6rem Poppins, sans-serif;
+  color: var(--color-primary);
+}
+
+.pagination-control.disabled {
+  pointer-events: none;
+}
+
+.pagination-control.disabled p,
+.pagination-control.disabled svg path {
+  color: var(--color-complement) !important;
+  stroke: var(--color-complement) !important;
+}
