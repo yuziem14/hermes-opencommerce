@@ -34,6 +34,6 @@ Route::delete('logout', [SessionController::class, 'destroy'])
   ->name('logout');
 
 Route::get('/home', function() {
-  return 'Home';
+  return view('home.index');
 })->middleware('auth')
   ->name('home');
