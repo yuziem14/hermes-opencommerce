@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,23 @@ use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', function () {
     return view('index');
-});
-
-Route::get('/login', function() {
-  return view('auth.login');
-});
+})->middleware('guest')
+  ->name('index');
 
 Route::resource('register', RegisterController::class)
-  ->only(['index','store']);
+  ->only(['index','store'])
+  ->middleware('guest');
+
+Route::resource('login', SessionController::class)
+  ->only(['index', 'store'])
+  ->middleware('guest')
+  ->name('index', 'login');
+
+Route::delete('logout', [SessionController::class, 'destroy'])
+  ->middleware('auth')
+  ->name('logout');
+
+Route::get('/home', function() {
+  return 'Home';
+})->middleware('auth')
+  ->name('home');
