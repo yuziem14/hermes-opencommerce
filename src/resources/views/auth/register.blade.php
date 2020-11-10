@@ -8,7 +8,7 @@
   <div id="page-register">
     <header>
       <nav>
-        <a href="/">
+        <a href="{{ route('index') }}">
           <img src="/images/arrow.svg" alt="Go Back">
         </a>
         <img src="/images/wordmark.svg" alt="Hermes | Wordmark">
@@ -20,7 +20,7 @@
     </header>
       <main class="container @if($errors->any()) tremble @endif">
       <form
-        action="/register"
+        action="{{ route('register.store') }}"
         enctype="multipart/form-data"
         method="POST"
       >

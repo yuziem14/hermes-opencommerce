@@ -7,7 +7,7 @@
 @section('content')
   <div id="page-login">
     <header class="container">
-      <a href="/">
+      <a href="{{ route('index') }}">
         <img src="/images/arrow.svg" alt="Go Back">
       </a>
     </header>
@@ -22,9 +22,10 @@
         <h1>Bem vindo de volta!</h1>
         <h3>Estamos felizes em <span class="breakline"></span>te ver por aqui.</h3>
       </header>
-      <form class="container">
+        <form class="container" action="{{ route('login.store') }}" method="POST">
         <fieldset>
           <legend>Login no Hermes</legend>
+          @csrf
           <div>
             <div class="input-group">
               <label for="email">E-mail</label>
@@ -41,7 +42,7 @@
         </button>
       </form>
       <footer class="container">
-        <p>Não tem uma conta? <a href="/register">Registre-se</a></p>
+        <p>Não tem uma conta? <a href="{{ route('register.index') }}">Registre-se</a></p>
       </footer>
     </main>
   </div>
