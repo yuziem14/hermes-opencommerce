@@ -1,0 +1,21 @@
+@keyframes tremble {
+  0% {
+    left: 0;
+    right: 0;
+  }
+  25% {
+    left: 50px;
+  }
+  50% {
+    left: 0px;
+    right: 50px;
+  }
+  75% {
+    left: 50px;
+    right: 0px;
+  }
+  100% {
+    right: 0px;
+    left: 0px;
+  }
+}

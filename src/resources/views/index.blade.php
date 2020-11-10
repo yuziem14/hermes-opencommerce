@@ -17,10 +17,10 @@
       <div class="container">
         <img src="/images/hero.svg" alt="Hero Image">
         <div class="actions">
-          <a href="/login">
+          <a href="{{ route('login') }}">
             <p>Entrar</p>
           </a>
-          <a href="/register">
+          <a href="{{ route('register.index') }}">
             <p>Registrar-se</p>
           </a>
         </div>
