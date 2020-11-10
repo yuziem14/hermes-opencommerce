@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/product.css">
     @yield('styles')
 
     <title>{{env('APP_NAME')}}</title>
