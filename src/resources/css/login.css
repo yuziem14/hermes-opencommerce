@@ -61,10 +61,18 @@
   border: none;
 }
 
+#page-login fieldset header {
+  text-align: center;
+  margin-bottom: 3.2rem;
+}
+
 #page-login fieldset legend {
   font: 700 3.2rem Archivo, sans-serif;
-  text-align: center;
-  margin-bottom: 4.8rem;
+  margin-bottom: 1.6rem;
+}
+
+#page-login fieldset header .error-message {
+  font-size: 1.8rem;
 }
 
 #page-login button {
