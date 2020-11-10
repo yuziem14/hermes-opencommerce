@@ -59,6 +59,6 @@ class RegisterController extends Controller
         DB::rollback();
       }
 
-      return redirect('login');
+      return redirect()->route('login');
     }
 }
