@@ -17,8 +17,6 @@ function fileInputOnChangeHandler(event) {
   const fileSelector = fileInput.closest(`.${FILE_SELECTOR_CLASSNAME}`);
   const selectedFiles = fileInput.files;
 
-  console.log(selectedFiles);
-
   const imagesPreviews = document.querySelectorAll(`.${FILE_CONTAINER_CLASSNAME} > img`);
   Array.from(imagesPreviews).forEach(imagePreview => {
     destroyImagePreview(imagePreview);
