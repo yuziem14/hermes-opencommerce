@@ -24,6 +24,7 @@ mix.styles([
     'resources/css/parcials/pagination.css',
     'resources/css/parcials/aside-content.css',
   ], 'public/css/parcials.css')
+  .styles('resources/css/components/product.css', 'public/css/product.css')
   .styles('resources/css/main.css', 'public/css/main.css')
   .styles('resources/css/login.css', 'public/css/login.css')
   .styles('resources/css/register.css', 'public/css/register.css')
