@@ -1,0 +1,152 @@
+#navbar {
+  width: 100%;
+  max-width: unset;
+  min-height: 7.2rem;
+  max-height: 7.2rem;
+  position: fixed;
+  bottom: 0;
+  background: var(--color-white);
+  box-shadow: 0px -4px 16px 1px rgba(51, 51, 51, 0.25);
+  margin-top: auto;
+}
+
+#navbar ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+#navbar ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s, color 0.2s, stroke 0.2s;
+}
+
+#navbar .user {
+  background-color: var(--color-secondary) !important;
+}
+
+#navbar .user img {
+  width: 100%;
+  max-width: 5.6rem;
+  border-radius: 50%;
+}
+
+#navbar .user p {
+  color: var(--color-dark) !important;
+}
+
+#navbar li:hover {
+  background-color: var(--color-purple-lighter);
+}
+
+#navbar li:hover svg path {
+  stroke: var(--color-white);
+}
+
+#navbar ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s, color 0.2s, stroke 0.2s;
+}
+
+#navbar li .nav-link {
+  width: 80%;
+  min-height: 7.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  margin: 0 auto;
+  padding: 0.8rem 0;
+  cursor: pointer;
+}
+
+#navbar li .nav-link p {
+  display: none;
+  font: 400 1.6rem Poppins, sans-serif;
+  color: var(--color-primary);
+  margin-left: 2.4rem;
+}
+
+#navbar .active {
+  background-color: var(--color-primary) !important;
+}
+
+#navbar .active p {
+  color: var(--color-text) !important;
+}
+
+#navbar .active svg path {
+  stroke: var(--color-text);
+}
+
+#navbar li:hover p {
+  color: var(--color-white);
+}
+
+@media screen and (min-width: 648px) {
+  #navbar {
+    width: 10.4rem;
+    min-height: 100vh;
+    left: 0;
+    bottom: unset;
+    box-shadow: 4px 0px 16px 1px rgba(51, 51, 51, 0.25);
+    margin-top: 0;
+    transition: width 200ms;
+  }
+
+  #navbar ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #navbar ul li {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.2s, color 0.2s, stroke 0.2s;
+  }
+
+  #navbar li .nav-link {
+    width: 80%;
+    min-height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    margin: 0 auto;
+    padding: 0.8rem 0;
+  }
+
+  #navbar li .nav-link .icon,
+  #navbar li.user img {
+    margin: 0 auto;
+    transition: margin 200ms;
+  }
+
+  #navbar:hover li .nav-link .icon,
+  #navbar:hover li.user img {
+    margin: 0;
+  }
+
+  #navbar:hover {
+    width: 20rem;
+  }
+
+  #navbar:hover li .nav-link p {
+    display: block;
+  }
+
+  #navbar:hover + #aside-content {
+    margin-left: 20rem;
+  }
+}
