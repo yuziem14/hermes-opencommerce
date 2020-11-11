@@ -3,8 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Tag;
+use App\Models\Product;
+
+use App\Http\Requests\StoreProduct;
 
 class ProductController extends Controller
 {
@@ -15,7 +22,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-      return view('products.index');
+      $products = Product::orderBy('updated_at', 'desc')->with(['user', 'images', 'tags'])->get();
+      return view('products.index')->with(['products' => $products]);
     }
 
     /**
@@ -35,9 +43,48 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProduct $request)
     {
-        //
+      $data = $request->only(['name', 'description', 'price', 'amount']);
+
+      try {
+        DB::beginTransaction();
+
+        $imageNames = [];
+        $product = new Product();
+        $product->fill($data);
+        $product->initial_price = $data['price'];
+        $product->user_id = Auth::user()->id;
+        $tagIds = [];
+
+        if($request->has('tags')) {
+          $tagIds = Tag::select('id')->whereIn('slug', $request->input('tags', []))->get();
+        }
+
+        if($request->hasFile('images')) {
+          foreach($request->images as $image) {
+            $hash = Str::random();
+            $extension = $image->extension();
+            $imageName = $hash.'_'.time().'.'.$extension;
+
+            $path = Storage::putFileAs('products', $image, $imageName);
+            $imageNames[] = $imageName;
+          }
+        }
+
+        $product->save();
+        foreach($imageNames as $imageName) {
+          $product->images()->create(['filename' => $imageName]);
+        }
+
+        $product->tags()->attach($tagIds);
+        DB::commit();
+      } catch (Exception $e) {
+        DB::rollback();
+      }
+
+
+      return redirect()->route('products.index');
     }
 
     /**
@@ -48,7 +95,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::with(['user', 'images', 'tags'])->where('id', $id)->first();
+        return view('products.show')->with('product', $product);
     }
 
     /**
@@ -82,6 +130,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->tags()->detach();
+        $product->delete();
+
+        return redirect()->route('products.index');
     }
 }
