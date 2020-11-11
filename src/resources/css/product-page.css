@@ -1,0 +1,97 @@
+#page-product {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#page-product aside header h1 {
+  font: 400 2.4rem Poppins, sans-serif;
+  color: var(--color-dark);
+}
+
+#page-product aside header p {
+  margin-top: 2.4rem;
+  font: 400 1.8rem Poppins, sans-serif;
+  color: var(--color-complement);
+}
+
+#page-product .product-images {
+  width: 100%;
+  display: grid;
+  grid-gap: 1.6rem;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  border: 2px solid var(--color-primary);
+  border-radius: 0.8rem;
+  box-shadow: 4px 4px 12px 0px rgba(51, 51, 51, 0.25);
+  margin-top: 3.2rem;
+  margin-bottom: 4.8rem;
+  padding: 2.4rem;
+}
+
+#page-product .product-images img {
+  width: 100%;
+  border-radius: 0.8rem;
+}
+
+#page-product aside footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#page-product aside footer .info {
+  justify-self: flex-start;
+}
+
+#page-product aside footer .actions .action {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.8rem 1.6rem;
+}
+
+#page-product aside footer .actions .action p {
+  font: 400 1.6rem Poppins, sans-serif;
+  color: var(--color-background-light);
+}
+
+#page-product aside footer .actions .action img {
+  max-width: 1.6rem;
+  font: 400 1.6rem Poppins, sans-serif;
+  color: var(--color-background-light);
+  margin-right: 0.8rem;
+}
+
+#page-product aside footer .actions a {
+  background-color: var(--color-primary) !important;
+}
+
+#page-product aside footer .actions button {
+  background-color: var(--color-error) !important;
+  margin-top: 0.8rem;
+}
+
+#page-product aside footer p {
+  font: 400 1.4rem Poppins, sans-serif;
+  color: var(--color-dark);
+}
+
+#page-product aside footer p > span {
+  font: 700 2rem Archivo, sans-serif;
+  color: var(--color-primary);
+  margin-left: 0.4rem;
+}
+
+@media screen and (min-width: 568px) {
+  #page-product .product-images {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
