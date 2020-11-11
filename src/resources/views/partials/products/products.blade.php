@@ -21,7 +21,12 @@
           >
           <div>
             <h2>{{ $product->name }}</h2>
-            <p>{{ implode(', ', array_column($product->tags->toArray(), 'name')) }}</p>
+            @php
+              $tagsString = implode(', ', array_column($product->tags->toArray(), 'name'));
+              echo '<p>';
+              echo $tagsString === '' ? 'Outros' : $tagsString;
+              echo '</p>';
+            @endphp
           </div>
         </div>
       </main>

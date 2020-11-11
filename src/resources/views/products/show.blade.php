@@ -20,9 +20,12 @@
           <header>
             <h1>{{ $product->name }}</h1>
             <p>{{ $product->description }}</p>
-            <p>Incluido em: {{
-                implode(', ', array_column($product->tags->toArray(), 'name'))
-              }}
+            <p>
+              @php
+                $tagsString = implode(', ', array_column($product->tags->toArray(), 'name'));
+                echo 'Incluído em: ';
+                echo $tagsString === '' ? 'Outros' : $tagsString;
+              @endphp
             </p>
           </header>
           <main>
@@ -42,10 +45,10 @@
             </div>
             @if(Auth::user()->id === $product->user->id)
               <div class="actions">
-                {{-- <a class="action" href="{{ route('products.edit', $product->id) }}">
+                <a class="action" href="{{ route('products.edit', $product->id) }}">
                   <img src="/images/edit.svg" alt="Edit" />
                   <p>Editar</p>
-                </a> --}}
+                </a>
                 <form action="{{ route('products.destroy', $product->id) }}" method="POST">
                   @method('DELETE')
                   @csrf
