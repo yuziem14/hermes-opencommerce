@@ -2,8 +2,6 @@
 
 @php
   $pageName = 'Anunciar Produto';
-  $userAvatar = Auth::user()->avatar_filename;
-  $fileUrl = $userAvatar ? '/uploads/avatars/'.$userAvatar : '/images/avatar.svg';
 @endphp
 
 @section('styles')

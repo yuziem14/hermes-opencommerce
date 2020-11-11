@@ -2,8 +2,6 @@
 
 @php
   $pageName = 'Produtos';
-  $userAvatar = Auth::user()->avatar_filename;
-  $fileUrl = $userAvatar ? '/uploads/avatars/'.$userAvatar : '/images/avatar.svg';
 @endphp
 
 @section('styles')
@@ -23,17 +21,16 @@
             <h1>Produtos</h1>
             <a href="{{ route('products.create') }}">Anunciar Produto</a>
           </header>
-          <div class="products">
-            <x-product></x-product>
-            <x-product></x-product>
-            <x-product></x-product>
-            <x-product></x-product>
-            <x-product></x-product>
-            <x-product></x-product>
-          </div>
+            @if(count($products) === 0)
+              <h1>Não há produtos a serem mostrados.</h1>
+            @else
+              <div class="products">
+                @include('partials.products.products')
+              </div>
+            @endif
         </div>
 
-        @include('partials.pagination')
+        {{-- @include('partials.pagination') --}}
       </aside>
     </main>
   </div>
