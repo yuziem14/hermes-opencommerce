@@ -1,10 +1,10 @@
-#page-create-product form {
+#product-form {
   background-color: var(--color-white);
   border-radius: 0.8rem;
   margin-top: 2.4rem;
 }
 
-#page-create-product form .uploaded-images {
+#product-form .uploaded-images {
   max-height: 32rem;
   display: grid;
   grid-template-columns: 1fr;
@@ -16,7 +16,7 @@
   padding: 0.8rem;
 }
 
-#page-create-product form .multiple-file-selector {
+#product-form .multiple-file-selector {
   min-height: 100%;
   display: flex;
   align-items: center;
@@ -25,29 +25,29 @@
   border-radius: 0.8rem;
 }
 
-#page-create-product form .multiple-file-selector img {
+#product-form .multiple-file-selector img {
   width: 100%;
   max-width: 6.4rem;
 }
 
-#page-create-product form .multiple-file-selector > * {
+#product-form .multiple-file-selector > * {
   pointer-events: none;
 }
 
-#page-create-product form .uploaded-images img {
+#product-form .uploaded-images img {
   width: 100%;
   border-radius: 0.8rem;
 }
 
-#page-create-product form input[type="file"] {
+#product-form input[type="file"] {
   display: none;
 }
 
-#page-create-product fieldset {
+#product-form fieldset {
   border: none;
 }
 
-#page-create-product fieldset legend {
+#product-form fieldset legend {
   width: 100%;
   font: 700 2.4rem Archivo, sans-serif;
   color: var(--color-secondary);
@@ -57,8 +57,8 @@
   margin-bottom: 3.2rem;
 }
 
-#page-create-product fieldset.container,
-#page-create-product fieldset.container {
+#product-form fieldset.container,
+#product-form fieldset.container {
   max-width: 868px;
   width: 75%;
 }
@@ -118,12 +118,12 @@
 }
 
 @media screen and (min-width: 568px) {
-  #page-create-product form .uploaded-images {
+  #product-form .uploaded-images {
     max-height: 20rem;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  #page-create-product form .multiple-file-selector img {
+  #product-form .multiple-file-selector img {
     width: 80% !important;
     max-width: 6.4rem;
   }
@@ -134,7 +134,7 @@
 }
 
 @media screen and (min-width: 956px) {
-  #page-create-product form .uploaded-images {
+  #product-form .uploaded-images {
     grid-template-columns: repeat(4, 1fr);
   }
 
