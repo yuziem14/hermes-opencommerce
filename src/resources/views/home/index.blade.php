@@ -2,8 +2,6 @@
 
 @php
   $pageName = 'Home';
-  $userAvatar = Auth::user()->avatar_filename;
-  $fileUrl = $userAvatar ? '/uploads/avatars/'.$userAvatar : '/images/avatar.svg';
 @endphp
 
 @section('styles')
@@ -20,17 +18,16 @@
       <aside id="aside-content" class="with-nav">
         <div class="container">
           <h1>Minha Vitrine</h1>
-          <div class="products">
-            <x-product></x-product>
-            <x-product></x-product>
-            <x-product></x-product>
-            <x-product></x-product>
-            <x-product></x-product>
-            <x-product></x-product>
-          </div>
+          @if(count($products) === 0)
+            <h1>Pronto para anunciar seu primeiro produto?</h1>
+          @else
+            <div class="products">
+              @include('partials.products.products')
+            </div>
+          @endif
         </div>
 
-        @include('partials.pagination')
+        {{-- @include('partials.pagination') --}}
       </aside>
     </main>
   </div>
