@@ -3,8 +3,9 @@
   action="{{ route('products.store') }}"
   method="POST"
   enctype="multipart/form-data"
-  class="container"
+  class="container @if($errors->any()) tremble @endif"
 >
+  @csrf
   <fieldset class="container">
     <legend>Dados do Produto</legend>
     <div class="uploaded-images multiple-file-container">
@@ -19,6 +20,9 @@
             accept="image/jpeg,image/png"
           >
         </div>
+        @error('images')
+          <p class="error-message">{{ $message }}</p>
+        @enderror
       </div>
     </div>
     <div>
@@ -30,8 +34,12 @@
           id="name"
           minLength="4"
           maxLength="255"
+          value="{{ old('name') }}"
           required
         >
+        @error('name')
+          <p class="error-message">{{ $message }}</p>
+        @enderror
       </div>
       <div class="input-group">
         <label for="description">Descrição</label>
@@ -41,9 +49,11 @@
           name="description"
           id="description"
           minLength="4"
-          maxLength="255"
           required
-        ></textarea>
+        >{{old('description')}}</textarea>
+        @error('description')
+          <p class="error-message">{{ $message }}</p>
+        @enderror
       </div>
       <div class="input-group">
         <label for="price">Preço</label>
@@ -53,19 +63,27 @@
           name="price"
           min="0"
           step="0.1"
+          value="{{ old('price') }}"
           required
         >
+        @error('price')
+          <p class="error-message">{{ $message }}</p>
+        @enderror
       </div>
       <div class="input-group">
-        <label for="amount">Preço</label>
+        <label for="amount">Quantidade</label>
         <input
           type="number"
           id="amount"
           name="amount"
           min="1"
           step="1"
+          value="{{ old('amount') }}"
           required
         >
+        @error('amount')
+          <p class="error-message">{{ $message }}</p>
+        @enderror
       </div>
       <div class="input-group">
         <label for="tags">Tags</label>
@@ -78,6 +96,9 @@
             <option value="{{ $tag->slug }}">{{ $tag->name }}</option>
           @endforeach
         </select>
+        @error('tags')
+          <p class="error-message">{{ $message }}</p>
+        @enderror
       </div>
       <div class="selected-tags">
         {{-- <div class="tag">
