@@ -1,10 +1,13 @@
 <form
   id="product-form"
-  action="{{ route('products.store') }}"
+  action="@if(isset($product)) {{ route('products.update', $product->id) }} @else {{ route('products.store') }} @endif"
   method="POST"
   enctype="multipart/form-data"
   class="container @if($errors->any()) tremble @endif"
 >
+  @isset($product)
+    @method('PUT')
+  @endisset
   @csrf
   <fieldset class="container">
     <legend>Dados do Produto</legend>
@@ -24,6 +27,14 @@
           <p class="error-message">{{ $message }}</p>
         @enderror
       </div>
+      @isset($product)
+        @foreach($product->images as $image)
+          <img
+            src="/uploads/products/{{ $image->filename }}"
+            alt="{{ $product->name }} Image"
+          >
+        @endforeach
+      @endisset
     </div>
     <div>
       <div class="input-group">
@@ -34,7 +45,7 @@
           id="name"
           minLength="4"
           maxLength="255"
-          value="{{ old('name') }}"
+          value="{{ old('name') ?? $product->name ?? '' }}"
           required
         >
         @error('name')
@@ -49,7 +60,7 @@
           name="description"
           id="description"
           minLength="4"
-        >{{old('description')}}</textarea>
+        >{{old('description') ?? $product->description ?? ''}}</textarea>
         @error('description')
           <p class="error-message">{{ $message }}</p>
         @enderror
@@ -62,7 +73,7 @@
           name="price"
           min="0"
           step="0.01"
-          value="{{ old('price') }}"
+          value="{{ old('price') ?? $product->price ?? '' }}"
           required
         >
         @error('price')
@@ -77,7 +88,7 @@
           name="amount"
           min="1"
           step="1"
-          value="{{ old('amount') }}"
+          value="{{ old('amount') ?? $product->amount ?? '' }}"
           required
         >
         @error('amount')
@@ -99,11 +110,15 @@
         @enderror
       </div>
       <div class="selected-tags">
-        {{-- <div class="tag">
-          <input type="hidden" name="tags[]" value="eletrodomesticos">
-          <p>Eletrodomésticos</p>
-          <img src="/images/close.svg" alt="Unselect"/>
-        </div> --}}
+        @isset($product)
+          @foreach($product->tags as $tag)
+            <div class="tag">
+              <input type="hidden" name="tags[]" value="{{ $tag->slug }}">
+              <p>{{ $tag->name }}</p>
+              <img src="/images/close.svg" alt="Unselect"/>
+            </div>
+          @endforeach
+        @endisset
       </div>
     </div>
     <button type="submit">
