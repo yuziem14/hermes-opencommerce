@@ -1,3 +1,7 @@
+@php
+  $userAvatar = Auth::user()->avatar_filename;
+  $fileUrl = $userAvatar ? '/uploads/avatars/'.$userAvatar : '/images/avatar.svg';
+@endphp
 <nav id="navbar">
   <ul>
     <li class="user">
