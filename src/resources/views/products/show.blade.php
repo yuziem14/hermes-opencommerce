@@ -15,7 +15,7 @@
     <main>
       @include('partials.navbar')
 
-      <aside id="aside-content" class="container with-nav">
+      <aside id="aside-content" class="with-nav">
         <div class="container">
           <header>
             <h1>{{ $product->name }}</h1>
