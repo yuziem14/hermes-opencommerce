@@ -33,6 +33,7 @@ mix.styles([
   .styles('resources/css/register.css', 'public/css/register.css')
   .styles('resources/css/home.css', 'public/css/home.css')
   .styles('resources/css/products-page.css', 'public/css/products-page.css')
-  .styles('resources/css/create-product.css', 'public/css/create-product.css');
+  .styles('resources/css/create-product.css', 'public/css/create-product.css')
+  .styles('resources/css/product-page.css', 'public/css/product-page.css');
 
 mix.copyDirectory('resources/images', 'public/images');
