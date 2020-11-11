@@ -49,7 +49,6 @@
           name="description"
           id="description"
           minLength="4"
-          required
         >{{old('description')}}</textarea>
         @error('description')
           <p class="error-message">{{ $message }}</p>
@@ -62,7 +61,7 @@
           id="price"
           name="price"
           min="0"
-          step="0.1"
+          step="0.01"
           value="{{ old('price') }}"
           required
         >
@@ -89,7 +88,6 @@
         <label for="tags">Tags</label>
         <select
           id="tags"
-          required
         >
           <option value="" selected disabled>Selecione uma tag</option>
           @foreach($tags as $tag)
