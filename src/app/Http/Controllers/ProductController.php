@@ -15,6 +15,10 @@ use App\Http\Requests\StoreProduct;
 
 class ProductController extends Controller
 {
+    public function __construct() {
+      $this->middleware('is.owner', ['only' => ['edit','update', 'destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
