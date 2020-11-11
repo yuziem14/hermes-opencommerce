@@ -35,6 +35,7 @@ body {
 body,
 input,
 button,
+select,
 textarea {
   font: 500 1.6rem Poppins, sans-serif;
   color: var(--color-dark);
@@ -70,7 +71,9 @@ textarea {
   margin-bottom: 0.4rem;
 }
 
-.input-group input {
+.input-group input,
+.input-group textarea,
+.input-group select {
   width: 100%;
   min-height: 5.6rem;
   border: none;

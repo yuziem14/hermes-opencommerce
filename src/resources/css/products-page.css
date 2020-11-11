@@ -1,0 +1,32 @@
+#page-products {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#page-products #aside-content header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 3.2rem 0;
+}
+
+#page-products #aside-content header h1 {
+  margin: 0;
+}
+
+#page-products #aside-content header a {
+  min-height: 4.8rem;
+  max-height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 400 1.6rem Poppins, sans-serif;
+  color: var(--color-background-light);
+  text-decoration: none;
+  border-radius: 0.8rem;
+  background-color: var(--color-primary);
+  padding: 0.8rem;
+}

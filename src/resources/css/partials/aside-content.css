@@ -1,4 +1,8 @@
 #aside-content {
+  margin-bottom: 3.2rem;
+}
+
+#aside-content.with-nav {
   margin-bottom: 9.6rem;
 }
 
@@ -12,7 +16,7 @@
 }
 
 @media screen and (min-width: 648px) {
-  #aside-content {
+  #aside-content.with-nav {
     margin-left: 10.4rem;
   }
 }
