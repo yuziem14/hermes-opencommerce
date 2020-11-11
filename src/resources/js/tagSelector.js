@@ -26,6 +26,8 @@ function handleTagSelectorChange(event) {
     newTag.addEventListener('click', handleOnTagClick);
     tagsContainer.append(newTag);
   }
+
+  tagSelector.value = '';
 }
 
 function handleOnTagClick(event) {
