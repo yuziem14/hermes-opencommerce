@@ -77,12 +77,14 @@ class ProductController extends Controller
         }
 
         $product->save();
+        $product->tags()->attach($tagIds);
+
         foreach($imageNames as $imageName) {
           $product->images()->create(['filename' => $imageName]);
         }
 
-        $product->tags()->attach($tagIds);
         DB::commit();
+        return redirect()->route('products.show', [$product]);
       } catch (Exception $e) {
         DB::rollback();
       }
@@ -111,7 +113,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::with(['images', 'tags'])->where('id', $id)->first();
+        $tags = Tag::all();
+
+        return view('products.edit')->with(['product' => $product, 'tags' => $tags]);
     }
 
     /**
@@ -121,9 +126,56 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProduct $request, $id)
     {
-        //
+      $product = Product::findOrFail($id);
+
+      $productImages = clone($product->images);
+      $data = $request->only(['name', 'description', 'price', 'amount']);
+
+      try {
+        DB::beginTransaction();
+
+        $imageNames = [];
+        $tagIds = [];
+
+        if($request->has('tags')) {
+          $tagIds = Tag::select('id')->whereIn('slug', $request->input('tags', []))->get();
+        }
+
+        if($request->hasFile('images')) {
+          foreach($request->images as $image) {
+            $hash = Str::random();
+            $extension = $image->extension();
+            $imageName = $hash.'_'.time().'.'.$extension;
+
+            $path = Storage::putFileAs('products', $image, $imageName);
+            $imageNames[] = $imageName;
+          }
+        }
+
+        $product->fill($data);
+        $product->tags()->detach();
+        $product->tags()->attach($tagIds);
+        $product->save();
+
+        foreach($imageNames as $imageName) {
+          $product->images()->create(['filename' => $imageName]);
+        }
+
+        foreach ($productImages as $image) {
+          Storage::delete('products/'.$image->filename);
+          $image->delete();
+        }
+
+        DB::commit();
+        return redirect()->route('products.show', [$product]);
+      } catch (Exception $e) {
+        DB::rollback();
+      }
+
+
+      return redirect()->route('products.index');
     }
 
     /**
@@ -135,6 +187,11 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
+
+        foreach ($product->images as $image) {
+          Storage::delete('products/'.$image->filename);
+        }
+
         $product->tags()->detach();
         $product->delete();
 
